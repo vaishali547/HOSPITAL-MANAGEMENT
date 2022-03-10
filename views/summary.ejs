@@ -1,0 +1,48 @@
+<%- include('./partials/top.ejs')%>
+<%- include('./partials/topbar.ejs')%>
+
+<%- include('./partials/navbar.ejs')%>
+<form action="/patientform/<%= JSON.stringify(dat) %>" method="post">
+<table border="1" class="table">
+    <tr>
+        <th>Patientname:</th>
+        <td><%= dat.patientname %></td>
+    </tr>
+    <tr>
+        <th>Patientage:</th>
+        <td><%= dat.patientage %></td>
+    </tr>
+    <tr>
+        <th>Mobile:</th>
+        <td><%= dat.mobile %></td>
+    </tr>
+    <tr>
+        <th>Department:</th>
+        <td><%= dat.department %></td>
+    </tr>
+    <tr>
+        <th>Doctor:</th>
+        <td><%= dat.doctor %></td>
+    </tr>
+    <tr>
+        <th>Problem:</th>
+        <td><%= dat.problem %></td>
+    </tr>
+    <tr>
+        <th>Appointment Date:</th>
+        <td><%= dat.appointmentdate%></td>
+    </tr>
+    <tr>
+        <th>Appointment Time:</th>
+        <td><%= dat.appointmenttime%></td>
+    </tr>
+    <tr>
+        <th> Appointment Fee:</th>
+        <td><%=charge %></td>
+    </tr>
+    
+</table>
+<input type="submit" value="Done" style=" background-color: rgb(13, 71, 230); box-shadow: 2px;color: white; width: 100px; height: 40px; border: none;">
+  
+  
+</form>

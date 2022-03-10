@@ -1,0 +1,485 @@
+<%- include('./partials/top.ejs')%>
+<%- include('./partials/topbar.ejs')%>
+
+<%- include('./partials/navbar.ejs')%>
+
+
+<form action="/summary" method="post" enctype="multipart/form-data">
+<div class="body">
+    <h2 class="card-inside-title">Appointment Form</h2>
+    <div class="row clearfix">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" class="form-control" placeholder="Patient Name"  name="patientname"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" class="form-control" placeholder="Patient Age"  name="patientage"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-line">
+                    <input type="text" class="form-control" placeholder="Mobile" name="mobile" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="card-inside-title">Department</h3>
+                <select class="form-control show-tick" name="department" id="dep" onchange="ChangedeptList()">
+                    <option value="0">-- Select Department --</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="General Surgery">General Surgery</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                    <option value="Ophthalmology">Ophthalmology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Gastroenterology">Gastroenterology</option>
+                    <option value="Gynecology">Gynecology</option>
+                    <option value="Oncology">Oncology</option>
+                    <option value="Physiotherapy">Physiotherapy</option>
+                    <option value="Haematology">Haematology</option>
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="card-inside-title">Doctor</h3>
+                <div style="display: block;" id="sel">
+                <select class="form-control show-tick" name="doctor" id="docsel">
+                    <option value="">--Please select doctor--</option>
+                </select>
+                </div>
+                <div style="display:none ;" id="selcardio">
+                        <select class="form-control show-tick" name="doctor" id="doccardio">
+                            <option value="">-- Please select doctor--</option>
+                            <option value="Dr.Hart">Dr.Hart</option>
+                            <option value="Dr.Truluck">Dr.Truluck</option>
+                        </select>
+                </div>
+                <div style="display: none;" id="selgen">
+                    
+                    <select class="form-control show tick" name="doctor" id="docgen" >
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Luck"> Dr.Luck</option>
+                        <option value="Dr.Jelley">Dr.Jelley</option>
+                        
+                    </select>
+                </div>
+                <div style="display: none;" id="seleortho">
+                    
+                    <select class="form-control show tick" name="doctor" id="doctortho" >
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Peter"> Dr.Peter</option>
+                        <option value="Dr.Blank">Dr.Blank</option>
+                        
+                    </select>
+                </div>
+                <div style="display: none;" id="selophth">
+                    
+                    <select class="form-control show tick" name="doctor" id="docophth">
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Bour">Dr.Bour</option>
+                        <option value="Dr.Cutts">Dr.Cutts</option>
+                        
+                    </select>
+                </div>
+                <div style="display: none;" id="selneuro">
+                    
+                    <select class="form-control show tick" name="doctor" id="docneuro">
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Foley">Dr.Foley</option>
+                        <option value="Dr.Johnathan Treat">Dr.Johnathan Treat</option>
+                        
+                    </select>
+                </div>
+                <div style="display: none;" id="selgastro">
+                    
+                    <select class="form-control show tick" name="doctor" id="docgastro">
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Heine">Dr.Heine</option>
+                        <option value="Dr.Brown">Dr.Brown</option>
+                        
+                    </select>
+                </div>
+                <div style="display: none;" id="selgyne">
+                    
+                    <select class="form-control show tick" name="doctor" id="docgyne">
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Dibble">Dr.Dibble</option>
+                        <option value="Dr.Wiwi Semen">Dr.Wiwi Semen</option>
+                        
+                    </select>
+                </div>
+                <div style="display: none;" id="selonco">
+                    
+                    <select class="form-control show tick" name="doctor" id="doconco">
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Payne">Dr.Payne</option>
+                        <option value="Dr.Crick">Dr.Crick</option>
+                        
+                    </select>
+                </div>
+                <div style="display: none;" id="selphysio">
+                    
+                    <select class="form-control show tick" name="doctor" id="docphysio">
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Knott">Dr.Knott</option>
+                        <option value="Dr.Rush">Dr.Rush</option>
+                        
+                    </select>
+                </div>
+                <div style="display: none;" id="selhaemo">
+                    
+                    <select class="form-control show tick" name="doctor" id="dochaemo">
+                        <option value="">-- Please select doctor--</option>
+                        <option value="Dr.Polen">Dr.Polen</option>
+                        <option value="Dr.Killam">Dr.Killam</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-line">
+                    <textarea class="form-control" placeholder="Describe your problem here"  name="problem" rows="3" column="6"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <h3 class="card-inside-title">Choose Date</h3>
+                    <div class="form-line">
+                        <input type="date" class="datepicker form-control"  name="choosedate" placeholder="Please choose a date...">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="card-inside-title"> Select Time</h3>
+                <select class="form-control show-tick" name="choosetime" id="timesel" >
+                    <option value="0">-- Select Time --</option>
+                    <option value="9am to 11am">9 to 11 in morning</option>
+                    <option value="12am to 2pm">12 to 2 in noon</option>
+                    <option value="3pm to 5pm">3 to 5 in evening</option>
+                    <option value="5:30 to 8pm">5:30 to 8 pm</option>
+                    
+                </select>
+            </div>
+            <div class="col-sm-12">
+                <h3 class="card-inside-title">Upload ID</h3>
+                <input type="file" name="fufile">
+                </div>
+        </div>
+        
+        
+    </div>
+    <input type="submit" value="Next" style=" background-color: rgb(230, 13, 13); box-shadow: 2px;color: white; width: 100px; height: 40px; border: none;">
+</form>
+
+    <script>
+        function ChangedeptList() {
+           
+            var department = document.getElementById("dep").value;
+            var select = document.getElementById("docsel")
+            var cardio = document.getElementById("doccardio")
+            var gen = document.getElementById("docgen")
+            var ortho= document.getElementById("doctortho")
+            var ophth= document.getElementById("docophth")
+            var neuro= document.getElementById("docneuro")
+            var gastro = document.getElementById("docgastro")
+            var gyne= document.getElementById("docgyne")
+            var onco= document.getElementById("doconco")
+            var physio= document.getElementById("docphysio")
+            var haemo= document.getElementById("dochaemo")
+
+            if(department == 'Cardiology') {
+                // console.log("in cardio")
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'block'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true
+                cardio.disabled = false
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = true
+            }
+            else if(department == 'General Surgery') {
+               
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'block'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true
+                cardio.disabled = true
+                gen.disabled = false
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = true
+                
+            }
+            else if(department == 'Orthopedics') {
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'block'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true  
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = false
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = true
+               
+            }
+            else if(department == 'Ophthalmology') {
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'block'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true   
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = false
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = true
+                
+                
+            }
+            else if(department == 'Neurology') {
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'block'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true 
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = false
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = true
+              
+            }
+            else if(department == 'Gastroenterology') {
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'block'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true 
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = false
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = true
+              
+            }
+            else if(department == 'Gynecology') {
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'block'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true 
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = false
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = true
+              
+            }
+            else if(department == 'Oncology') {
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'block'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true 
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = false
+                physio.disabled = true
+                haemo.disabled = true
+              
+            }
+            else if(department == 'Physiotherapy') {
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'block'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=true 
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = false
+                haemo.disabled = true
+              
+            }
+            else if(department == 'Haematology') {
+                document.getElementById('sel').style.display = 'none'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'block'
+                
+                select.disabled=true 
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = false
+              
+            }
+            else {
+                document.getElementById('sel').style.display = 'block'
+                document.getElementById('selcardio').style.display = 'none'
+                document.getElementById('selgen').style.display = 'none'
+                document.getElementById('seleortho').style.display = 'none'
+                document.getElementById('selophth').style.display = 'none'
+                document.getElementById('selneuro').style.display = 'none'
+                document.getElementById('selgastro').style.display = 'none'
+                document.getElementById('selgyne').style.display = 'none'
+                document.getElementById('selonco').style.display = 'none'
+                document.getElementById('selphysio').style.display = 'none'
+                document.getElementById('selhaemo').style.display = 'none'
+                
+                select.disabled=false
+                cardio.disabled = true
+                gen.disabled = true
+                ortho.disabled = true
+                ophth.disabled = true
+                neuro.disabled = true
+                gastro.disabled = true
+                gyne.disabled = true
+                onco.disabled = true
+                physio.disabled = true
+                haemo.disabled = true
+            }  
+            
+        }
+    </script>
+
+<%- include('./partials/bottom.ejs')%>
+
+
+
+

@@ -1,0 +1,39 @@
+<%- include('./partials/top.ejs')%>
+<%- include('./partials/topbar.ejs')%>
+
+<%- include('./partials/navbar.ejs')%>
+<div class="body-table responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Patient Name</th>
+                <th>Mobile</th>
+                <th>Department</th>
+                <th>Doctor</th>
+                <th> Appointment Date</th>
+                <th> Appointment Time</th>
+                <th>Appointment Fee</th>
+                <th>Cancel Appointment</th>
+                
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0;i<result.length;i++) {%>
+                <tr>
+                    <td><%= i+1%></td>
+                    <td><%= result[i].patientname%></td>
+                    <td><%= result[i].mobile%></td>
+                    <td><%= result[i].department%></td>
+                    <td><%= result[i].doctor%></td>
+                    <td><%= result[i].appointmentdate%></td>
+                    <td><%= result[i].appointmenttime%></td>
+                    <td><%= result[i].charge%></td>
+                    <td> <a href="cancelappointment/<%= result[i]._id%>">Cancel</a></td>
+
+                </tr> <%  } %>
+        </tbody>
+    </table>
+</div>

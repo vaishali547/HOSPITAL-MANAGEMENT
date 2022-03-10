@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLINOPLUS| Department</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <!-- Favicon-->
+   <link rel="icon" href="/images/faviconfol/favicon.ico" type="image/x-icon">
+   
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #ecf9ff;
+}
+
+body {
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 0rem;
+}
+
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #8d8fef 40%, #463cd1 100%);
+}
+
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+.made_by{
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="navFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="/home" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+      <a href="/aboutus" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+      <a href="/department" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DEPARTMENT</a>
+      <a href="/appointments" class="w3-bar-item w3-button w3-padding-large w3-hide-small">APPOINTMENT</a>
+      <a href="/viewappointments" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VIEW APPOINTMENT</a>
+      <a href="/contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+      <a href="/login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGIN</a>
+      <a href="/signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SIGNUP</a>
+  </div>
+  </div>
+  <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="/aboutus" class="w3-bar-item w3-button w3-padding-large" onclick="navFunction()">ABOUT US</a>
+  <a href="/department" class="w3-bar-item w3-button w3-padding-large" onclick="navFunction()">DEPARTMENT</a>
+  <a href="/contact" class="w3-bar-item w3-button w3-padding-large" onclick="navFunction()">CONTACT</a>
+  <a href="/appointments" class="w3-bar-item w3-button w3-padding-large" onclick="navFunction()">APPOINTMENT</a>
+  <a href="/viewappointments" class="w3-bar-item w3-button w3-padding-large" onclick="navFunction()"> VIEW APPOINTMENT</a>
+  <a href="/login" class="w3-bar-item w3-button w3-padding-large" onclick="navFunction()">LOGIN</a>
+</div>
+
+
+  <div class="main">
+    <h1>Departments</h1>
+    <ul class="cards">
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/cardiology/deptcard.jpg"></div>
+          <div class="card_content">
+            <h2 class="card_title">Cardiology</h2>
+            <p class="card_text">Cardiology is the study and treatment of disorders of the heart and the blood vessels.  </p>
+            <a href="/department/Cardiology" class="btn card_btn"  style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/generalsurgery/deptgen.jpg"></div>
+          <div class="card_content">
+            <h2 class="card_title">General Surgery</h2>
+            <p class="card_text">General surgery ,despite of its name, is actually a surgical specialty. General surgeons not only perform surgeries for a wide range of common ailments, but are also responsible for patient care.Surgery is any procedure that alters body tissues.</p>
+            <a href="/department/General Surgery" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/orthopedics/deptortho.png"></div>
+          <div class="card_content">
+            <h2 class="card_title">Orthopedics</h2>
+            <p class="card_text">Orthopaedics is key to managing and treating bone and joint pain, which most of us will experience.
+
+            </p>
+            <a href="/department/Orthopedics" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/opthalmology/deptoph.jpg"></div>
+          <div class="card_content">
+            <h2 class="card_title">Ophthalmology</h2>
+            <p class="card_text">An ophthalmologist is a medical or osteopathic doctor who specializes in eye and vision care.</p>
+            <a href="/department/Ophthalmology" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/neurology/deptneuro.jpg"></div>
+          <div class="card_content">
+            <h2 class="card_title">Neurology</h2>
+            <p class="card_text">Neurology deals with the diagnosis and treatment of all categories of conditions and disease involving the central and peripheral nervous systems.treatment of adults and children with neurological conditions. </p>
+            <a href="/department/Neurology" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/gastroenterology/deptgas.jpeg"></div>
+          <div class="card_content">
+            <h2 class="card_title">Gastroenterology</h2>
+            <p class="card_text">Gastroenterology is the branch of medicine that focuses on the digestive tract and the gallbladder, liver, bile ducts, and pancreas.</p>
+            <a href="/department/Gastroenterology" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li><li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/gynecology/deptgyne.jpg"></div>
+          <div class="card_content">
+            <h2 class="card_title">Gynecology</h2>
+            <p class="card_text"> A gynecologist specializes in caring for the reproductive health of a woman from the time she gets her first period .</p>
+            <a href="/department/Gynecology" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/Oncology/deptonco.jpg"></div>
+          <div class="card_content">
+            <h2 class="card_title">Oncology</h2>
+            <p class="card_text">Oncology is the study of cancer. An oncologist is a doctor who treats cancer and provides medical care for a person diagnosed with cancer.The field of oncology has 3 major areas based on treatments: medical oncology, radiation oncology, and surgical oncology.</p>
+            <a href="/department/Oncology" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/physiotherapy/deptphysio.jpg"></div>
+          <div class="card_content">
+            <h2 class="card_title">Physiotherapy</h2>
+            <p class="card_text">Physiotherapy is treatment to restore, maintain, and make the most of a patient's mobility, function, and well-being.Physios use their knowledge and skills to improve a range of conditions  </p>
+            <a href="/department/Physiotherapy" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="/images/haematology/depthaemo.jpg"></div>
+          <div class="card_content">
+            <h2 class="card_title">Haematology</h2>
+            <p class="card_text">Hematology is the study of pathophysiology of the cellular elements and coagulation proteins in the blood.</p>
+            <a href="/department/Haematology" class="btn card_btn" style="text-align: center; text-decoration: none;">View Doctors</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  <h3 class="made_by">Clinoplus-Your Healthcare</h3>
+</body>
+<script>
+  function navFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+</html>
